@@ -20,9 +20,11 @@ class ApiController extends \BaseController {
 
     public function postSms()
     {
+        die('smsm');
         if( !(isset($_POST["phoneNumber"]) and isset($_POST["message"])) )
         {
-            Response::abort(400, "Bad Request");
+            // not sure why but the below doesnt work, will fix later
+//            Response::abort(400, "Bad Request");
         }
         $phoneNumber = $_POST["phoneNumber"];
         $message = $_POST["message"];

@@ -4,7 +4,7 @@ class ApiController extends \BaseController {
 
     public function getIndex()
     {
-        // access this via: example.com/
+        // access this via: example.com/api
         $response_data = array(
             'test' => 'test',
             'test2' => 'test2',

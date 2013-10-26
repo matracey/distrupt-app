@@ -14,4 +14,4 @@
 Route::get('/', 'HomeController@showDocs');
 
 // rest api controller
-Route::controller('disrupt', 'ApiController');
+Route::controller('api', 'ApiController');

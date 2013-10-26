@@ -87,7 +87,7 @@ class ApiController extends \BaseController {
 
     private function clickatellAuth()
     {
-        if( !(isset($clickatellAuth["session"]) and isset($clickatellAuth["retrievalTime"])) )
+        if( !(isset($this->clickatellAuth["session"]) and isset($this->clickatellAuth["retrievalTime"])) or (  $this->clickatellAuth["retrievalTime"]->diff(new DateTime(date("d-m-Y H:i:s")))->i >= 15  ) )
         {
             /*
              * If no session or retieval time is set, or if it has expired, then we must get a new session.
@@ -111,7 +111,11 @@ class ApiController extends \BaseController {
             if(stristr($result, "OK: ") != FALSE)
             {
                 $this->clickatellAuth["session"] = substr($result, 4);
-                $this->clickatellAuth["retrievalTime"] = date("d/m/Y H:i:s");
+                $this->clickatellAuth["retrievalTime"] = new DateTime(date("d-m-Y H:i:s"));
+
+                // $this->clickatellAuth["retrievalTime"] = new DateTime("2013-10-26 22:53:51");
+                // $retrievalTime = new DateTime($this->clickatellAuth["retrievalTime"]);
+                // var_dump($this->clickatellAuth["retrievalTime"]->diff(new DateTime(date("d-m-Y H:i:s")))->i); exit();
                 // var_dump($this->clickatellAuth);
             }
         }

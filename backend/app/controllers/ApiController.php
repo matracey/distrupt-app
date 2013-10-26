@@ -18,6 +18,13 @@ class ApiController extends \BaseController {
         return Response::json($response_data);
     }
 
+    public function postUsers()
+    {
+        // command line curl:
+        // curl -X POST -d 'd=d' http://local.disrupt.me/api/users
+        die('post users');
+    }
+
     public function postProfile()
     {
         // accessed via data POSTED to example.com/profile

@@ -37,7 +37,6 @@ class TubeLineStatus extends Command {
 	 */
 	public function fire()
 	{
-//            die('sldclsdnclsdncklsdncksldnc');
             // get disrupted tube lines
             $raw_xml = file_get_contents('http://cloud.tfl.gov.uk/TrackerNet/LineStatus/IncidentsOnly');
             $xml = simplexml_load_string($raw_xml);
@@ -45,31 +44,12 @@ class TubeLineStatus extends Command {
             $disruptedLines = array();
 
             foreach ($xml as $lineStatus) {
-                die(var_dump($lineStatus->BranchDisruptions));
-                // continue if no disruption node exists
-                if (isset($lineStatus->BranchDisruptions) === false
-                    && $lineStatus->BranchDisruptions->hasChildren() === false) {
-
-                    continue;
-                }
-
-                // get all disruptions for line
-                foreach ($lineStatus->BranchDisruptions as $branchDisruption) {
-
-                    $stationTo = $branchDisruption->StationTo->attributes();
-                    $stationFrom = $branchDisruption->StationFrom->attributes();
-
-                    $stationToName = $stationTo['Name'];
-                    $stationFromName = $stationFrom['Name'];
-                    var_dump($stationTo);
-                    $disruptedLines[] = array(
-                        'from' => '',
-                        'to' => '',
-                    );
-                }
-
-                break;
+                // get line name
+                $line_name = strtolower((string) $lineStatus->Line->attributes()->Name);
+                $disruptedLines[] = $line_name;
             }
+
+            print_r($disruptedLines);
 	}
 
 	/**

@@ -18,4 +18,14 @@ class ApiController extends \BaseController {
         // accessed via data POSTED to example.com/profile
     }
 
+    public function postSms()
+    {
+        if( !(isset($_POST["phoneNumber"]) and isset($_POST["message"])) )
+        {
+            Response::abort(400, "Bad Request");
+        }
+        $phoneNumber = $_POST["phoneNumber"];
+        $message = $_POST["message"];
+    }
+
 }

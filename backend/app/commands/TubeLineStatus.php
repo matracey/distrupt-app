@@ -37,7 +37,36 @@ class TubeLineStatus extends Command {
 	 */
 	public function fire()
 	{
-		//
+            // get disrupted tube lines
+            $raw_xml = file_get_contents('http://cloud.tfl.gov.uk/TrackerNet/LineStatus/IncidentsOnly');
+            $xml = simplexml_load_string($raw_xml);
+
+            $disruptedLines = array();
+
+            foreach ($xml as $lineStatus) {
+
+                // continue if no disruption node exists
+                if ($lineStatus->BranchDisruptions->hasChildren() === false) {
+                    continue;
+                }
+
+                // get all disruptions for line
+                foreach ($lineStatus->BranchDisruptions as $branchDisruption) {
+
+                    $stationTo = $branchDisruption->StationTo->attributes();
+                    $stationFrom = $branchDisruption->StationFrom->attributes();
+
+                    $stationToName = $stationTo['Name'];
+                    $stationFromName = $stationFrom['Name'];
+                    var_dump($stationTo);
+                    $disruptedLines[] = array(
+                        'from' => '',
+                        'to' => '',
+                    );
+                }
+
+                break;
+            }
 	}
 
 	/**

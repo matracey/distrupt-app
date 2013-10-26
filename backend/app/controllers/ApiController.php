@@ -4,30 +4,18 @@ class ApiController extends \BaseController {
 
     public function getIndex()
     {
-        // get search term and return tweets
-        $twitterClient = App::make('twitterClient');
-
-        // tweets
-        $search = array(
-            'q' => $_GET['q'],
-            'count' => 100,
+        // access this via: example.com/
+        $response_data = array(
+            'test' => 'test',
+            'test2' => 'test2',
         );
-        $tweets = $twitterClient->get('search/tweets.json', $search);
 
-        $reputes = array();
-
-        foreach ($tweets['statuses'] as $tweet) {
-            $reputes[] = $tweet['text'];
-        }
-
-//        print_r($tweets);
-
-        return Response::json($reputes);
+        return Response::json($response_data);
     }
 
     public function postProfile()
     {
-        //
+        // accessed via data POSTED to example.com/profile
     }
 
 }

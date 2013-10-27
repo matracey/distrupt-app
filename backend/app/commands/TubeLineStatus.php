@@ -49,6 +49,8 @@ class TubeLineStatus extends Command {
                 $disruptedLines[] = $line_name;
             }
 
+            // email all users who have not been communicated with, and whose lines are down
+
             print_r($disruptedLines);
 	}
 

@@ -102,6 +102,11 @@ class TubeLineStatus extends Command {
             }
 
             // mark users as notified
+            DB::statement( "UPDATE users
+                SET user_last_sms = NOW()
+                WHERE (user_line_one IN ({$disruptedLinesSql})
+                OR user_line_two IN ({$disruptedLinesSql}) )
+                ");
 
 
 	}

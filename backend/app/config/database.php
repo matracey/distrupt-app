@@ -62,8 +62,8 @@ return array(
 	'connections' => array(
 
 		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => '54.246.176.250',
+			'driver'    => 'mysqli',
+			'host'      => '54.246.176.250:3306',
 			'database'  => 'disrupt_db',
 			'username'  => 'root',
 			'password'  => 'SexyDevelop3r',

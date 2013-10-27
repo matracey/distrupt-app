@@ -12,7 +12,7 @@ class ApiController extends \BaseController {
         // access this via: example.com/api
         $response_data = array(
             'test' => 'test',
-            'test2' => 'test2',
+            'test2' => 'testTWO',
         );
 
         return Response::json($response_data);
@@ -74,7 +74,9 @@ class ApiController extends \BaseController {
                     CURLOPT_POSTFIELDS => array(
                         "session_id" => $this->clickatellAuth["session"],
                         "to" => $phoneNumber,
-                        "text" => $message
+                        "text" => $message,
+                        "mo" => 1,
+                        "from" => "447860024233"
                         )
                     ));
 
@@ -83,6 +85,30 @@ class ApiController extends \BaseController {
                 var_dump($result);
             }
         }
+    }
+
+    public function postReturnMessage()
+    {
+        // curl -X POST -d 'd=d' http://local.disrupt.me/api/returnMessage
+        // curl -X POST -d 'd=d' http://martin.disrupt.local/api/returnMessage
+        die("Hello");
+        $xml = new XMLWriter();
+        // $xml->openURI("php://output");
+        $xml->startDocument('1.0','UTF-8');
+        $xml->setIndent(4);
+        $xml->startElement("response");
+        foreach ($_POST as $k => $v)
+        {
+            if(isset($v))
+            {
+                $xml->startElement($k);
+                $xml->text($v);
+                $xml->endElement($k);
+            }
+        }
+        $xml->endElement("response");
+        $xml->endDocument();
+        echo $xml->flush();
     }
 
     private function clickatellAuth()

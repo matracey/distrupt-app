@@ -26,11 +26,10 @@ class ApiController extends \BaseController {
         // command line curl:
         // curl -X POST -d 'd=d' http://local.disrupt.me/api/users
         // TODO: get lines, and duration, time @ work. sms/email
-        $_POST = json_decode($_POST, true);
-        $from_line = $_POST['transport']['directions'][0]['line'];
-        $to_line = $_POST['transport']['directions'][1]['line'];
+        $from_line = $_POST['transport']['directions'][0]['from'];
+        $to_line = $_POST['transport']['directions'][0]['to'];
         $duration = $_POST['transport']['duration'];
-        $time_at_work = $_POST['timeAtWork'];
+//        $time_at_work = $_POST['timeAtWork'];
 
         $sms_to = array();
         foreach ($_POST['sms'] as $cell_number) {
@@ -47,7 +46,7 @@ class ApiController extends \BaseController {
         $insert = array(
             'user_emails' => $email_addresses,
             'user_sms' => $sms_s,
-            'user_time_at_work' => $time_at_work,
+//            'user_time_at_work' => $time_at_work,
             'user_journey_duration' => $duration,
             'user_line_one' => $from_line,
             'user_line_two' => $to_line,
@@ -60,7 +59,7 @@ class ApiController extends \BaseController {
         $colummns = implode(',', $cols);
 
         // TODO: save this info to DB
-        DB::insert('insert into users ('.$colummns.') values (?, ?, ?, ?, ?, ?)', $insert);
+        DB::insert('insert into users ('.$colummns.') values (?, ?, ?, ?, ?)', $insert);
 
         die('post users');
     }

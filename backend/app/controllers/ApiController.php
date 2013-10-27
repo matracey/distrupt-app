@@ -15,6 +15,9 @@ class ApiController extends \BaseController {
             'test2' => 'testTWO',
         );
 
+        DB::statement( "SELECT * FROM users
+                ");
+
         return Response::json($response_data);
     }
 
@@ -121,14 +124,14 @@ class ApiController extends \BaseController {
          * We're going to use the 'momsgid' field in the POST global to identify who the recieved message should be sent to.
          *
          * We will be passed api_id, momsgid, from, timestamp, text and to.
-         * 
+         *
          * CURL CALLS
          *
          * curl -X POST -d 'd=d' http://local.disrupt.me/api/returnMessage
          * curl -X POST -d 'd=d' http://martin.disrupt.local/api/returnMessage
          */
 
-        
+
     }
 
     private function clickatellAuth()

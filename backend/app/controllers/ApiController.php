@@ -100,33 +100,35 @@ class ApiController extends \BaseController {
 
                 $result = curl_exec($handler);
 
-                var_dump($result);
+                if(stristr($result, "ID: ") != FALSE)
+                {
+                    $result = substr($result, 4);
+                }
+
+                // var_dump($result);
+                $post = $_POST;
+                $post['root'] = "message";
+                $post['momsgid'] = $result;
+                $this->writeToXML($post);
             }
         }
     }
 
-    public function postReturnMessage()
+    public function postMessage()
     {
-        // curl -X POST -d 'd=d' http://local.disrupt.me/api/returnMessage
-        // curl -X POST -d 'd=d' http://martin.disrupt.local/api/returnMessage
-        die("Hello");
-        $xml = new XMLWriter();
-        // $xml->openURI("php://output");
-        $xml->startDocument('1.0','UTF-8');
-        $xml->setIndent(4);
-        $xml->startElement("response");
-        foreach ($_POST as $k => $v)
-        {
-            if(isset($v))
-            {
-                $xml->startElement($k);
-                $xml->text($v);
-                $xml->endElement($k);
-            }
-        }
-        $xml->endElement("response");
-        $xml->endDocument();
-        echo $xml->flush();
+        /*
+         * This method will be called by the Clickatell system when a message is received back.
+         * We're going to use the 'momsgid' field in the POST global to identify who the recieved message should be sent to.
+         *
+         * We will be passed api_id, momsgid, from, timestamp, text and to.
+         * 
+         * CURL CALLS
+         *
+         * curl -X POST -d 'd=d' http://local.disrupt.me/api/returnMessage
+         * curl -X POST -d 'd=d' http://martin.disrupt.local/api/returnMessage
+         */
+
+        
     }
 
     private function clickatellAuth()
@@ -163,5 +165,16 @@ class ApiController extends \BaseController {
                 // var_dump($this->clickatellAuth);
             }
         }
+    }
+
+    private function writeToXML($array)
+    {
+        $output = "";
+        $output .= "<".$array['root'].">\n";
+        foreach ($array as $k => $v) {
+            if($k != "root") $output .= "<".$k.">".$v."</".$k.">\n";
+        }
+        $output .= "</".$array['root'].">\n";
+        file_put_contents($array['root'].".xml", $output, FILE_APPEND);
     }
 }

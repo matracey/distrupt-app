@@ -29,7 +29,17 @@ class Installation extends Migration {
 
 ";
 
-            DB::statement($sql);
+			$messagesTable = "
+			CREATE TABLE IF NOT EXISTS `messages` (
+				`message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+				`ct_momsgid` nvarchar(32),
+				`ct_from` varchar(50),
+				`ct_to` varchar(50),
+				`ct_timestamp` varchar(50),
+				`ct_text`varchar(255),
+				PRIMARY KEY (`message_id`)
+				)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1;";
+            DB::statement($sql, $messagesTable);
 
 	}
 

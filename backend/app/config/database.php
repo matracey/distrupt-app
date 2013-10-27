@@ -44,14 +44,29 @@ return array(
 	|
 	*/
 
+	// 'connections' => array(
+
+	// 	'mysql' => array(
+	// 		'driver'    => 'mysql',
+	// 		'host'      => 'localhost',
+	// 		'database'  => 'disrupt',
+	// 		'username'  => 'root',
+	// 		'password'  => '',
+	// 		'charset'   => 'utf8',
+	// 		'collation' => 'utf8_unicode_ci',
+	// 		'prefix'    => '',
+	// 	),
+
+	// ),
+
 	'connections' => array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'disrupt',
+			'host'      => '54.246.176.250',
+			'database'  => 'disrupt_db',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'SexyDevelop3r',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

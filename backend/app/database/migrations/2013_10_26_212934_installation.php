@@ -24,6 +24,8 @@ class Installation extends Migration {
                   PRIMARY KEY (`user_id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;";
 
+            DB::statement($sql);
+
 	}
 
 	/**
@@ -35,6 +37,7 @@ class Installation extends Migration {
 	{
 		//
                 $sql = "DROP TABLE users;";
+                DB::statement($sql);
 	}
 
 }

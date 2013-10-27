@@ -62,7 +62,7 @@ return array(
 	'connections' => array(
 
 		'mysql' => array(
-			'driver'    => 'mysqli',
+			'driver'    => 'mysql',
 			'host'      => '54.246.176.250:3306',
 			'database'  => 'disrupt_db',
 			'username'  => 'root',

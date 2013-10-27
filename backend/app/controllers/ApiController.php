@@ -26,7 +26,7 @@ class ApiController extends \BaseController {
         // command line curl:
         // curl -X POST -d 'd=d' http://local.disrupt.me/api/users
         // TODO: get lines, and duration, time @ work. sms/email
-
+        $_POST = json_decode($_POST, true);
         $from_line = $_POST['transport']['directions'][0]['line'];
         $to_line = $_POST['transport']['directions'][1]['line'];
         $duration = $_POST['transport']['duration'];

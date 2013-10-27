@@ -72,7 +72,7 @@ class TubeLineStatus extends Command {
 
             foreach ($users as $user) {
                 $phoneNumbers = explode(",", $user->user_sms);
-                $message = 'Hi there, I will be in late. regards ';
+                $message = "Hi there, the {$user->user_line_one} is disrupted. I will be in late. sent from Disrupt";
 
                 // var_dump($phoneNumber, $message, );
                 // exit();

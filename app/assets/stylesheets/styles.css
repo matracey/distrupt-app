@@ -1,0 +1,267 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  font-family:'Noto Sans', sans-serif;
+}
+
+h1 {
+  line-height:42px;
+  font-family:'Noto Sans', sans-serif;
+}
+
+h2, h3, h4, p {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+section {
+	padding-bottom: 30px;
+	padding-top: 10px;
+	margin-top: auto;
+}
+
+img.topbanner {
+  border-radius: 200px;
+}
+
+hr.icons {
+ color: #777;
+}
+
+.navbar {
+  margin-bottom:0px;
+}
+
+.theme-dropdown .dropdown-menu {
+  display: block;
+  position: static;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+#home{
+  background:#FFFFFF;
+  color:#444444;
+  margin-top:-70px;
+}
+
+#section-hero {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:#0071bc;
+  background:#FFFFFF;
+}
+
+#section-features {
+  background:#efefef;
+  text-align:center;
+}
+
+#section-how {
+  background:#FFFFFF;
+}
+
+#section-footer {
+  background:#000000;
+  color:#FFFFFF;
+  padding:5px 0 5px 0;
+  margin-bottom:-40px;
+}
+
+#section-getstarted {
+  background:#efefef;
+}
+
+.text-align {
+  text-align:center;
+}
+
+.navbar-brand {
+  background:url('../images/logo.png') no-repeat;
+}
+
+.navbar-inverse {
+background-color: #FFFFFF;
+border-color: #eee;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus  {
+  opacity:0.9;
+}
+
+.navbar-inverse .navbar-nav a:active {
+  background-color:#333;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+color: #ffffff;
+background-color: #7e7e7e;
+}
+
+.navbar-nav > li > a {
+padding-top: 20px;
+padding-bottom: 25px;
+}
+
+.feature h4 {
+margin-top: 22px;
+margin-bottom: 22px;
+border-bottom: 2px solid;
+display: inline-block;
+font-size: 16px;
+color: #444;
+padding-bottom: 2px;
+font-family: 'Noto Sans', sans-serif;
+}
+
+.alt-h {
+font-family: 'Montserrat', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+font-weight: bold;
+}
+
+h1.section-header {
+  padding-bottom:30px;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.download :hover{
+  opacity: 0.9;
+}
+
+.logobrand {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  width:70px;
+}
+
+/*.glyphicon {
+position: relative;
+top: 10px;
+display: inline-block;
+font-family: 'Glyphicons Halflings';
+font-style: normal;
+font-weight: normal;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+font-size: 36px;
+}*/
+
+.btn-group-vertical{
+  width:100%;
+}
+
+.navbar-toggle {
+background-color:#666;
+}
+
+.navbar-header {
+ padding-top:8px; 
+ padding-left:10px;
+}
+
+.topheader {
+margin-bottom: -10px;
+margin-top: 10px;
+font-weight:bold;
+}
+
+label {
+font-weight:normal;
+}
+
+.logomain {
+  width:25%;
+}
+
+h4.titlepage {
+font-weight:bold;
+}
+
+.direction.Northern {
+background: #000000;
+color:#FFFFFF;
+}
+
+.direction.Bakerloo {
+background: #996633;;
+color:#FFFFFF;
+}
+
+.direction.Central {
+background: #E32017;
+color: #FFFFFF;
+}
+
+.direction.Circle {
+background: #FFD300;
+color: #000000;
+}
+
+.direction.District {
+background: #00782A;
+color: #FFFFFF;
+}
+
+.direction.Hammersmith {
+background: #F3A9BB;
+color: #000000;
+}
+
+.direction.Jubilee {
+background: #A0A5A9;
+color: #000000;
+}
+
+.direction.Metropolitan {
+background: #9B0056;
+color: #FFFFFF;
+}
+
+.direction.Piccadilly {
+background: #003688;
+color: #FFFFFF;
+}
+
+.direction.Victoria {
+background: #0098D4;
+color: #FFFFFF;
+}
+
+.direction.Waterloo {
+background: #95CDBA;
+color: #000000;
+}
+
+.direction.DLR {
+background: #00A4A7;
+color: #FFFFFF;
+}
+
+.direction.Overground {
+background: #EE7C0E;
+color: #FFFFFF;
+}
+
+.direction.Tramlink {
+background: #84B817;
+color: #FFFFFF;
+}
+
+.bolden {
+font-weight: bold;
+font-size: 14px;
+}
+
+.glyphicon.home {
+border-radius: 10px;
+background: blue;
+color: white;
+padding: 10px 10px 10px 10px;
+margin-bottom: 10px
+}
